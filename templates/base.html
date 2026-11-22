@@ -8,10 +8,22 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark mb-4">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'posts:lista' %}">Mi Blog</a>
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'posts:lista' %}">Mi Blog</a>
+        <div class="d-flex align-items-center gap-2">
+            {% if user.is_authenticated %}
+                <span class="text-light">Hola, {{ user.username }}</span>
+                <form method="post" action="{% url 'accounts:logout' %}" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
+                </form>
+            {% else %}
+                <a class="btn btn-outline-light btn-sm" href="{% url 'accounts:login' %}">Iniciar sesión</a>
+                <a class="btn btn-primary btn-sm" href="{% url 'accounts:registro' %}">Registrarse</a>
+            {% endif %}
         </div>
-    </nav>
+    </div>
+</nav>
     <main class="container">
         {% block content %}{% endblock %}
     </main>

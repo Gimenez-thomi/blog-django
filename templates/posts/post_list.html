@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Posts</h1>
+{% for post in posts %}
+    <div class="card mb-3">
+        {% if post.imagen %}
+            <img src="{{ post.imagen.url }}" class="card-img-top" alt="{{ post.titulo }}">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ post.titulo }}</h5>
+            <p class="card-text">{{ post.contenido|truncatewords:30 }}</p>
+            <p class="text-muted small">Por {{ post.autor.username }} el {{ post.fecha_creacion|date:"d/m/Y" }}</p>
+            <a href="{% url 'posts:detalle' post.pk %}" class="btn btn-primary">Leer más</a>
+        </div>
+    </div>
+{% empty %}
+    <p>Todavía no hay posts.</p>
+{% endfor %}
+{% endblock %}

@@ -9,5 +9,9 @@
     <img src="{{ post.imagen.url }}" class="img-fluid mb-3" alt="{{ post.titulo }}">
 {% endif %}
 <div>{{ post.contenido|linebreaks }}</div>
+{% if user == post.autor %}
+    <a href="{% url 'posts:editar' post.pk %}" class="btn btn-warning">Editar</a>
+    <a href="{% url 'posts:eliminar' post.pk %}" class="btn btn-danger">Eliminar</a>
+{% endif %}
 <a href="{% url 'posts:lista' %}" class="btn btn-secondary">Volver</a>
 {% endblock %}

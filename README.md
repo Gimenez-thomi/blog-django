@@ -98,4 +98,4 @@ El repositorio no incluye la base de datos (`db.sqlite3`) ni la carpeta `media/`
 
 ## Autor
 
-[Thomas Gimenez] - [Gimenez-thomi]
+Thomas Gimenez - Gimenez-thomi

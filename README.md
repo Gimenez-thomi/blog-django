@@ -25,8 +25,8 @@ Blog web desarrollado con Django como entrega final del curso de Python. Permite
 1. Clonar el repositorio:
 
    ```
-   git clone [URL-DE-TU-REPOSITORIO]
-   cd [NOMBRE-DE-LA-CARPETA]
+   git clone https://github.com/Gimenez-thomi/blog-django.git
+   cd blog-django
    ```
 
 2. Crear y activar el entorno virtual:
